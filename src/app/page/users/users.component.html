@@ -1,0 +1,82 @@
+<div fxLayout="row" fxLayoutAlign="space-around center">
+    <div fxFlex =40%>
+        <form [formGroup]="userForm">
+            <mat-form-field appereance="outline" style="width: 100%;">
+                <mat-label>
+                    Ime
+                </mat-label>
+                <input matInput placeholder="Ime" formControlName="firstName" required>
+            </mat-form-field> 
+
+            <mat-form-field appereance="outline" style="width: 100%;">
+                <mat-label>
+                    Prezime
+                </mat-label>
+                <input matInput placeholder="Prezime" formControlName="secondName" required>
+            </mat-form-field> 
+
+            <mat-form-field appereance="outline" style="width: 100%;">
+                <mat-label>
+                    Email
+                </mat-label>
+                <input matInput placeholder="Email" formControlName="email" required type="email">
+            </mat-form-field> 
+
+            <mat-form-field appereance="outline" style="width: 100%;">
+                <mat-label>
+                    Lozinka
+                </mat-label>
+                <input matInput placeholder="Lozinka" formControlName="password" type ="password">
+            </mat-form-field> 
+
+            <mat-form-field appereance="outline" style="width: 100%;">
+                <mat-label>
+                    Ponovi lozinku
+                </mat-label>
+                <input matInput placeholder="Ponovi lozinku" formControlName="confirmPassword" type ="password">
+            </mat-form-field> 
+        
+        </form>
+        <button mat-button (click)="save()">Sačuvaj</button>
+    </div>
+    <div fxFlex="40%">
+        
+<mat-table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="ime">
+      <mat-header-cell *matHeaderCellDef> Ime </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.firstName}} </mat-cell>
+    </ng-container>
+  
+
+    <ng-container matColumnDef="prezime">
+      <mat-header-cell *matHeaderCellDef> Prezime </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.secondName}} </mat-cell>
+    </ng-container>
+  
+
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef> Email</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.email}} </mat-cell>
+    </ng-container>
+
+
+      <ng-container matColumnDef="password">
+        <mat-header-cell *matHeaderCellDef> Lozinka </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.password}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef> Akcija </mat-header-cell>
+        <mat-cell *matCellDef="let row"> 
+            <button mat-button (click)="delete(row)">Obrisi</button>
+        </mat-cell>
+      </ng-container>
+  
+    <!-- Header and Row Declarations -->
+    <!--<mat-header-row *matHeaderRowDef="['username', 'age', 'title']"></mat-header-row> -->
+    <mat-header-row *matHeaderRowDef="displayColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayColumns"></mat-row>
+  </mat-table>
+    </div>
+</div>

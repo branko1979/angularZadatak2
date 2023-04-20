@@ -17,6 +17,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { LoginComponent } from './login/login.component'
 import { AvatarModule } from 'ngx-avatar';
+import { UsersComponent } from './users/users.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { AvatarModule } from 'ngx-avatar';
     AboutComponent,
     PriceComponent,
     ContactComponent,
-    LoginComponent
+    LoginComponent,
+    UsersComponent
   ],
   imports: [
     CommonModule,
